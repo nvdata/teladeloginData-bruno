@@ -1,0 +1,310 @@
+
+&{
+  --padding-p: 6.875rem;
+  --padding-m: 5.625rem;
+  --caixa-w: 622px;
+  --formulario-w: 400px;
+  
+
+  @media (max-width: 1445px) and(max-height: 740px){
+    --padding-p: 5.625rem;
+    --padding-m: 3.75rem;
+    --caixa-w: 480px;
+    --formulario-w: 100%;
+  }
+
+  @media (max-width: 1368px) and (max-height: 768px) {
+    --formulario-w: 100%;
+    --padding-p: 5rem;
+    --padding-m: 3.43rem;
+    --caixa-w: 480px;
+  }
+
+  @media (max-width: 1280px) and (max-height: 740px) {
+    --formulario-w: 100%;
+    --padding-p: 5rem;
+    --padding-m: 3.43rem;
+  }
+  
+}
+
+
+
+
+
+main { 
+  height: 100vh;
+  background: $verde-bg-1;
+}
+
+header {
+  height: 100%;
+}
+
+.container__formulario {
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* SEÇÃO DE TODO O CARD DO FORMULÁRIO*/
+
+.formulario__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: var(--caixa-w);
+  width: 100%;
+  background: #fff;
+  padding: var(--padding-m) var(--padding-p);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  @include d(s){
+    width: 95%;
+    padding: 40px 32px;
+  }
+   
+
+  /* TEXTO INTRO FORMULÁRIO*/ 
+  .intro__formulario{
+    position: relative;
+    margin: var(--padding-m) 0;
+    @media (max-width: 1280px){
+      max-width: 100%;
+    }
+
+    @include d(m){
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include d(s){
+      margin: 3rem 0px 3rem 16px;
+
+    }
+
+    @include d(ss){
+      margin-top: 2rem;
+      margin-bottom: 2.5rem ;
+    }
+  
+
+/* BOLA VERDE*/
+
+    &::after{
+      content: "";
+      background-image: url("/assets/img/circulo.svg");
+      background-repeat: no-repeat;
+      display: inline-flex;
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: -60px;
+      right: 35px;
+      z-index: 1;
+
+     @media (max-width: 1440px){
+        top: -60px;
+        right: -30px;
+     }
+
+     @include d(m){
+      top: -60px;
+      right: 45px;
+     }
+      @include d(s){
+        background-image: url("/assets/img/circulo-mobile.svg");
+        width: 100px;
+        height: 100px;
+        top: -10px;
+        right: 0px;
+      }
+      
+      
+    }
+  }
+
+    h1 {
+      font-size: rem(40);
+      max-width: 280px;
+      z-index: 2;
+      font-weight: 700;
+      color: $cor-preto-1;
+      position: relative;
+      @include d(ss){
+        font-size: rem(32);
+      }
+      span {
+        color: $verde-claro-3;
+        
+    }
+  }
+
+/* FORMULÁRIO*/
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    @include d(s){
+      width: 100%;
+    }
+    
+    .input__box {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    
+      input {
+        position: relative;
+        z-index: 1;
+        left: -8px;
+        width: var(--formulario-w);
+        font-size: rem(16);
+        margin-left: 10px;
+        margin-bottom: 16px;
+        padding: 16px 50px;
+        border-radius: 58px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
+         color: $cor-preto-1;
+        @include d(m){
+          width: 100%;
+        }
+    
+      }
+
+
+    
+      span {
+        display: inline-block;;
+        position: absolute;
+        bottom: 0px;
+        top: 15px;
+        left: 50px;
+        color: $cor-cinza-6;
+        z-index: 2;
+        transition:
+              font-size .3s ease-in-out,
+              transform .3s ease-in-out,
+              background .2s ease-in-out;
+        pointer-events: none;
+      }
+
+      ion-icon {
+        font-size: 18px;
+        left: 24px;
+        position: absolute;
+        color: $cor-cinza-6;
+        top: 16px;
+        z-index: 2;
+      }
+      
+      input:focus~span{
+        transform: translateY(-22px) translateX(-24px);
+        font-size: 12px;
+        
+      }
+      /* ICONE EYE DO FORMULÁRIO*/
+
+      .eye {
+        left: 89%;
+        font-size: 20px;
+        @include d(s){
+          left: 87%;
+        }
+        @include d(ss){
+          left: 85%;
+          font-size: 18px;
+        }
+
+      }
+    
+      
+    }
+
+
+
+/* ESQUECEU A SENHA */
+
+    .remember {
+      display: block;
+      align-self: flex-end;
+      margin-bottom: 32px;
+      font-size: rem(16);
+      font-weight: 400;
+      @include d(s){
+        margin-top: 8px;
+        align-self: center;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    
+  }
+/* LOGO DA NOVADATA*/
+
+  .logo {
+    display: block;
+    img {
+      width: 83px;
+      margin: 0 auto;
+    }
+    
+  }
+}
+
+
+/* BOTÃO DO FORMULÁRIO*/
+
+.btn__container{
+  width: 100%;
+  margin-bottom: var(--padding-p);
+  @include d(s){
+    margin-bottom: 3.125rem;
+  }
+  @include d(ss){
+    margin-bottom: 2.5rem ;
+  }
+
+  .btn__formulario{
+    background: $verde-escuro-2;
+    padding: 18px 0;
+    width: 100%;
+    color: #fff;
+    border-radius: 58px;
+    font-weight: 700;
+    font-size: rem(16);
+    text-transform: uppercase;
+    border: 0.667998px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    box-shadow: 0px 1.336px 9.35197px rgba(15, 153, 77, 0.4);
+    transition: box-shadow .3s ease
+    transform .150s ease;
+    cursor: pointer;
+  
+    
+    &:hover{
+      box-shadow: 0px 3px 10px rgba(12, 68, 37, 0.4);
+      transform: translateY(-2px);
+      @include d(s){
+        transform: translateY(0);
+      }
+    }
+  }
+}

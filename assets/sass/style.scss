@@ -1,0 +1,44 @@
+
+//rem responsivo
+html {
+    --font-base: 100%;
+    font-size: var(--font-base);
+  }
+  
+  @media (max-width: 1440px) {
+    html {
+      font-size: calc(var(--font-base) - 9.25%);
+    }
+  }
+  
+  @media (max-width: 980px) {
+    html {
+      font-size: calc(var(--font-base) - 12.5%);
+    }
+  }
+  
+
+@import "bootstrap__imports";
+@import "../sass/cores__font";
+@import "../sass/mixins"; //MIXINS
+
+// UTILIDADES
+@import "../sass/utilities/utilitarios";
+@import "../sass/utilities/responsivo";
+@import "../sass/utilities/reset";
+@import "../sass/utilities/animation";
+
+
+@import "../sass/components/body"; //alterações no BODY
+//@import "../sass/components/menu";
+@import "../sass/components/footer";
+
+// PÁGINAS
+
+
+.body__login {
+    @import "./pages/page__login";
+}
+
+
+

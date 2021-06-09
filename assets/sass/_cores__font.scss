@@ -1,0 +1,70 @@
+$degrade-radial: radial-gradient(90% 97.11% at 90% 79.52%, #FBA855 0%, #FF8000 100%);
+$radial-claro:readial-gradient(90% 97.11% at 90% 79.52%, #FFE1C2 0%, #FFFFFF 100%);
+
+
+$shadow-card-normal:0px 12px 24px 6px rgba(0, 0, 0, 0.04),
+0px 24px 48px 6px rgba(0, 0, 0, 0.04);
+
+
+//preto
+$cor-preto-1: #181818;
+$cor-preto-2: #333333;
+$cor-preto-3:#212121;
+$cor-preto-4:rgba(33, 33, 33, 0.8);
+
+//Verde
+$verde-claro-1: #CBF9D3;
+$verde-claro-2: #93F0A5;
+$verde-claro-3: #05E02F;
+$verde-escuro-1: #066B06;
+$verde-escuro-2: #0F994D;
+$verde-bg-1: #F5FAF6;
+
+
+//cinza
+$cor-cinza-1:#525151;
+$cor-cinza-2: #D9D9D9;
+$cor-cinza-3: #9F9F9F;
+$cor-cinza-4: #BDBDBD;
+$cor-cinza-5: #999999;
+$cor-cinza-6: rgba(24, 24, 24, 0.6);
+
+
+//variaveis do projeto
+$border-radius: 7px;
+$shadow: 2px 2px 3px rgba(215, 215, 215, 0.1);
+
+$shadow-card: 0px 12px 24px 6px rgba(254, 83, 53, 0.04),
+0px 24px 10px 6px rgba(254, 83, 53, 0.01);
+
+@font-face {
+    font-family: Gotham;
+    src: url("/assets/fonts/Gotham-Bold.otf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url("/assets/fonts/GothamMedium_1.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url("/assets/fonts/GothamBook.ttf");
+    font-weight: 400;
+}
+
+
+
+//FONTES
+
+$font-gotham: "Gotham",
+sans-serif;
+
+
+@mixin gradiente_texto {
+    background: -webkit-linear-gradient(266deg, rgb(21 22 21 / 80%) 0%, #151615 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

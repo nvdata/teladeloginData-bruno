@@ -1,0 +1,212 @@
+@import "./utilities/responsivo"; //  RESPONSIVO
+@import "./utilities/clamp"; //  CLAMP
+
+
+@mixin titulosPrincipais($orna:true) {
+  font-family: $font-boska;
+  @include clamp("font-size", 32px, 4vw, 64px);
+  position: relative;
+  color: $cor-preto-3;
+  ;
+
+  @if $orna {
+    &:after {
+      @include pseudo(absolute);
+      background-image: url("../img/orna/separador.svg");
+      // width: 200px;   
+      @include clamp("width", 100px, 14vw, 200px);
+      height: 50px;
+
+
+    }
+  }
+}
+
+@mixin botaoMult {
+  width: 100%;
+  display: inline-flex;
+
+  .btn {
+    flex-grow: 0;
+    width: 240px;
+    font-weight: 600;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    background: $cor-vermelho-1;
+    color: white;
+    border-radius: 4px;
+    justify-content: center;
+    margin-top: 20px;
+    font-feature-settings: 'pnum'on, 'lnum'on;
+    letter-spacing: 1px;
+    transition: background .3s ease, color .3s ease;
+
+    ion-icon {
+      display: none;
+    }
+
+    &:hover {
+      background: rgba(242, 64, 64, 0.7);
+    }
+
+    @include d(s) {
+      @include center;
+      width: 100%;
+    }
+  }
+
+}
+
+//text intro
+
+// @mixin textIntro {
+//   text-align: center;
+//   line-height: 145%;
+//   color: $cor-preto-1;
+//   letter-spacing: -0.03em;
+//   font-size: rem(48);
+//   font-weight: bold;
+
+//   @include d(m) {
+//     font-size: rem(28);
+//   }
+
+//   @include d(s) {
+//     font-size: calc(22px + 0.2rem);
+//   }
+// }
+
+
+@mixin setaBotao {
+  position: relative;
+
+  ion-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 15px;
+    font-size: rem(18);
+    opacity: 0;
+  }
+
+  &:hover {
+    ion-icon {
+      opacity: 1;
+      animation: setaButton .5s linear infinite alternate;
+    }
+  }
+
+}
+
+
+@mixin tituloGrande {
+  color: $secundaria;
+  font-size: clamp(42px, 7vw, 84px);
+  text-align: center;
+  margin: 40px auto;
+}
+
+
+@mixin subtitulo($alinhamento: center) {
+  color: $terciaria;
+  text-align: $alinhamento;
+  line-height: 160%;
+
+  @include d(s) {
+    font-size: 14px;
+  }
+}
+
+
+@mixin botao($bg: white, $color: $secundaria) {
+  border-radius: 30px;
+  padding: 15px 40px;
+  text-align: center;
+  display: inline-flex;
+  background-color: $bg;
+  color: $color;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+
+  span {
+    background: $secundaria;
+    position: absolute;
+    transform-origin: center center;
+    @include size(100px);
+    border-radius: 50%;
+    animation: animate 1s linear forwards;
+    pointer-events: none;
+
+    z-index: 10;
+  }
+}
+
+@mixin sombra {
+  box-shadow: 0 30px 30px -40px rgb(0 0 0 / 64%);
+}
+
+// ===================================================
+
+//background
+@mixin bg-props-contain {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@mixin bg-props-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// Sizing
+// ------
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Normal & hover state
+// --------------------
+@mixin hoverer($property, $normal, $hovered) {
+  transition: 0.4s ease;
+
+  #{$property}: $normal;
+
+  &:hover {
+    #{$property}: $hovered;
+  }
+}
+
+@mixin data__logo {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 5px 10px;
+
+  img {
+    width: 130px;
+  }
+}
+
+@mixin pseudo($p: initial) {
+  content: "";
+  display: block;
+  @include bg-props-contain;
+  position: $p;
+  pointer-events: none;
+}
+
+@mixin inset {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
