@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,31 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Tela de login</title>
 </head>
+
 <body>
     <main id="page__login">
         <header>
-           <div class="container__formulario">
+            <div class="container__formulario">
                 <div class="formulario__data">
                     <div class="intro__formulario">
-                        <h1>Bem vindo(a) de volta<span>.</span></h1>
+                        <h1>Bem vindo(a)<br> de volta<span>.</span> <!-- Aqui vc tem seus dados na palma da mão. --></h1>
                     </div>
                     <form action="" class="formulario">
                         <div class="input__box">
-                            <input type="email" id="e-mail" required maxlength="32">
+                            <input type="email" id="e-mail" class="input__email" required  >
                             <span>E-mail</span>
                             <ion-icon name="mail-outline"></ion-icon>
                         </div>
-                        <div class="input__box">
-                            <input type="password" id="password" required maxlength="16">
-                            <span>Senha</span>
-                            <ion-icon name="lock-closed-outline"></ion-icon>
+
+                        <div class="input__box show__password">
                             <ion-icon name="eye-outline" class="eye"></ion-icon>
-                            
+                            <input type="password" id="password" required >
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+
+                            <span>Senha</span>
+
+
+
 
                         </div>
                         <a class="remember" href="#">Esqueceu a senha?</a>
@@ -34,13 +40,27 @@
                             <button class="btn__formulario" type="submit">Entrar</button>
                         </div>
                     </form>
-                        <a class="logo" href="https://novadata.com.br/" target="_blank"><img src="assets/img/logo.svg"></a>
+                    <a class="logo" href="https://novadata.com.br/" target="_blank"><img src="assets/img/logo.svg"></a>
                 </div>
             </div>
         </header>
     </main>
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script> 
-    <script type="module" src="./assets/js/main.js"></script>   
+
+    <script>
+        //remove aria form7
+        const inputs = document.querySelectorAll('input')
+        inputs.forEach((i) => {
+            if (i.hasAttribute('aria-required')) {
+                i.removeAttribute('aria-required')
+                i.setAttribute('required', "")
+            }
+
+        })
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
 
 </body>
+
 </html>

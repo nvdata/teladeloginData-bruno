@@ -25,8 +25,50 @@ const pageLogin = new Dom().el("#page__login");
 
 if (pageLogin) { // ★ HOME 
     new Dom().bodyClass("body__login");
-   
+    // mostra senha
+
+
+    const botaoMostra = document.querySelectorAll(".show__password .eye");
+
+    function mostraSenha(event) {
+        let input = this.nextElementSibling
+        let item = this
+
+        input.type = input.type == 'text' ? 'password' : 'text';
+        input.type == 'text' ? this.name = "eye-off-outline" : this.name = "eye-outline";
+
+    }
+
+    botaoMostra.forEach((i) => {
+        i.addEventListener("click", mostraSenha)
+    })
+
+
+    function validateEmailFinal() {
+        const valueEmail = this.value
+
+        function validateEmail() {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(valueEmail);
+        }
+
+        if (validateEmail() == true) {
+            this.parentElement.classList.add("email__valido")
+            this.parentElement.classList.remove("email__invalido")
+        } else if (validateEmail() == false) {
+            this.parentElement.classList.add("email__invalido")
+            this.parentElement.classList.remove("email__valido")
+
+        }
+    }
+
+
+    const inputsEmail = document.querySelectorAll(".input__email")
+    
+    inputsEmail.forEach((i) => {
+        i.addEventListener("focusout", validateEmailFinal)
+
+    })
+
 
 }
-
-

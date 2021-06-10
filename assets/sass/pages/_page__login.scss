@@ -1,38 +1,35 @@
+& {
+  --padding-p: 90px;
+  --padding-m: 60px;
+  --caixa-w: 560px;
+  --formulario-w: 100%;
 
-&{
-  --padding-p: 6.875rem;
-  --padding-m: 4.5rem;
-  --caixa-w: 622px;
-  --formulario-w: 400px;
-  
-
-  @media (max-width: 1445px) and(max-height: 740px){
+  /*   @media (max-width: 1445px) {
     --padding-p: 5.625rem;
     --padding-m: 3.75rem;
     --caixa-w: 480px;
     --formulario-w: 100%;
+  } */
+
+  @media (max-width: 1600px) {
+    --padding-p: 70px;
+    --padding-m: 53px;
+    --caixa-w: 456px;
+    --formulario-w: 100%;
   }
 
-  @media (max-width: 1368px) and (max-height: 768px) {
+  /*   @media (max-width: 1280px) and (max-height: 740px) {
     --formulario-w: 100%;
     --padding-p: 5rem;
     --padding-m: 3.43rem;
-    --caixa-w: 480px;
-  }
+  } */
 
-  @media (max-width: 1280px) and (max-height: 740px) {
-    --formulario-w: 100%;
-    --padding-p: 5rem;
-    --padding-m: 3.43rem;
-  }
-  
 }
 
 
 
 
-
-main { 
+main {
   height: 100vh;
   background: $verde-bg-1;
 }
@@ -67,40 +64,42 @@ header {
   box-sizing: border-box;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  @include d(s){
+
+  @include d(s) {
     width: 95%;
     padding: 40px 32px;
   }
-   
 
-  /* TEXTO INTRO FORMULÁRIO*/ 
-  .intro__formulario{
+
+  /* TEXTO INTRO FORMULÁRIO*/
+  .intro__formulario {
     position: relative;
     margin: var(--padding-m) 0;
-    @media (max-width: 1280px){
+
+    @media (max-width: 1280px) {
       max-width: 100%;
     }
 
-    @include d(m){
+    @include d(m) {
       width: 90%;
       margin-right: auto;
       margin-left: auto;
     }
 
-    @include d(s){
+    @include d(s) {
       margin: 3rem 0px 3rem 16px;
 
     }
 
-    @include d(ss){
+    @include d(ss) {
       margin-top: 2rem;
-      margin-bottom: 2.5rem ;
+      margin-bottom: 2.5rem;
     }
-  
 
-/* BOLA VERDE*/
 
-    &::after{
+    /* BOLA VERDE*/
+
+    &::after {
       content: "";
       background-image: url("../img/circulo.svg");
       background-repeat: no-repeat;
@@ -112,44 +111,49 @@ header {
       right: 35px;
       z-index: 1;
 
-     @media (max-width: 1440px){
-        top: -60px;
-        right: -30px;
-     }
+      @media (max-width: 1600px) {
+        right: -22px;
+      }
 
-     @include d(m){
-      top: -60px;
-      right: 45px;
-     }
-      @include d(s){
+      @include d(m) {
+        right: -35px;
+      }
+
+      @include d(s) {
         background-image: url("../img/circulo-mobile.svg");
         width: 100px;
         height: 100px;
-        top: -10px;
-        right: 0px;
+        top: -20px;
+        right: -20px;
       }
-      
-      
+
+
     }
   }
 
-    h1 {
-      font-size: rem(40);
-      max-width: 280px;
-      z-index: 2;
-      font-weight: 700;
-      color: $cor-preto-1;
-      position: relative;
-      @include d(ss){
-        font-size: rem(32);
-      }
-      span {
-        color: $verde-claro-3;
-        
+  h1 {
+    font-size: rem(38);
+    max-width: 320px;
+    z-index: 2;
+    font-weight: 500;
+    color: $cor-preto-1;
+    position: relative;
+
+    @include d(s) {
+      font-size: rem(32);
+    }
+
+    @include d(ss) {
+      font-size: rem(1.7rem);
+    }
+
+    span {
+      color: $verde-claro-3;
+
     }
   }
 
-/* FORMULÁRIO*/
+  /* FORMULÁRIO*/
 
   .formulario {
     display: flex;
@@ -158,16 +162,17 @@ header {
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    @include d(s){
+
+    @include d(s) {
       width: 100%;
     }
-    
+
     .input__box {
       width: 100%;
       margin: 0 auto;
       position: relative;
       z-index: 1;
-    
+
       input {
         position: relative;
         z-index: 1;
@@ -180,17 +185,19 @@ header {
         border-radius: 58px;
         border: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
-         color: $cor-preto-1;
-        @include d(m){
+        color: $cor-preto-1;
+
+        @include d(m) {
           width: 100%;
         }
-    
+
       }
 
 
-    
+
       span {
-        display: inline-block;;
+        display: inline-block;
+        ;
         position: absolute;
         bottom: 0px;
         top: 15px;
@@ -198,10 +205,20 @@ header {
         color: $cor-cinza-6;
         z-index: 2;
         transition:
-              font-size .3s ease-in-out,
-              transform .3s ease-in-out,
-              background .2s ease-in-out;
+          font-size .3s ease-in-out,
+          transform .3s ease-in-out,
+          background .2s ease-in-out;
         pointer-events: none;
+        height: max-content;
+
+        &:after {
+          content: "";
+          transition: background .3s ease;
+          background: transparent;
+        }
+
+
+
       }
 
       ion-icon {
@@ -212,33 +229,50 @@ header {
         top: 16px;
         z-index: 2;
       }
-      
-      input:focus~span{
+
+      input:focus~span,
+      input:valid~span {
         transform: translateY(-22px) translateX(-24px);
         font-size: 12px;
-        
+
+        &:after {
+          @include pseudo(absolute);
+          @include inset;
+          margin: auto;
+          height: 3px;
+          bottom: -3px;
+          width: 100%;
+          background: white;
+          z-index: -1;
+          border-radius: 10px;
+        }
+
       }
+
       /* ICONE EYE DO FORMULÁRIO*/
 
       .eye {
         left: 89%;
         font-size: 20px;
-        @include d(s){
+        cursor: pointer;
+
+        @include d(s) {
           left: 87%;
         }
-        @include d(ss){
+
+        @include d(ss) {
           left: 85%;
           font-size: 18px;
         }
 
       }
-    
-      
+
+
     }
 
 
 
-/* ESQUECEU A SENHA */
+    /* ESQUECEU A SENHA */
 
     .remember {
       display: block;
@@ -246,43 +280,54 @@ header {
       margin-bottom: 32px;
       font-size: rem(16);
       font-weight: 400;
-      @include d(s){
+
+      @include d(s) {
         margin-top: 8px;
         align-self: center;
       }
+
       &:hover {
         text-decoration: underline;
       }
     }
 
-    
+
   }
-/* LOGO DA NOVADATA*/
+
+  /* LOGO DA NOVADATA*/
 
   .logo {
     display: block;
+
     img {
       width: 83px;
       margin: 0 auto;
     }
-    
+
   }
 }
 
+.email__invalido {
+  .input__email {
+    border: 1px solid rgb(255 0 0 / 41%) !important;
+  }
+}
 
 /* BOTÃO DO FORMULÁRIO*/
 
-.btn__container{
+.btn__container {
   width: 100%;
   margin-bottom: var(--padding-p);
-  @include d(s){
+
+  @include d(s) {
     margin-bottom: 3.125rem;
   }
-  @include d(ss){
-    margin-bottom: 2.5rem ;
+
+  @include d(ss) {
+    margin-bottom: 2.5rem;
   }
 
-  .btn__formulario{
+  .btn__formulario {
     background: $verde-escuro-2;
     padding: 18px 0;
     width: 100%;
@@ -294,17 +339,24 @@ header {
     border: 0.667998px solid rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     box-shadow: 0px 1.336px 9.35197px rgba(15, 153, 77, 0.4);
-    transition: box-shadow .3s ease
-    transform .150s ease;
+    transition: .3s ease;
     cursor: pointer;
-  
-    
-    &:hover{
-      box-shadow: 0px 3px 10px rgba(12, 68, 37, 0.4);
+    will-change: transform;
+
+    &:hover {
+      box-shadow: 0px 1.336px 22px 10px rgba(15, 153, 77, 0.1), 0px 1.336px 9.35197px rgba(15, 153, 77, 0.4);
       transform: translateY(-2px);
-      @include d(s){
+
+      @include d(s) {
         transform: translateY(0);
       }
     }
   }
 }
+/* 
+.email__valido {
+  ion-icon[name="mail-outline"] {
+
+    color: #0f994d;
+  }
+} */
